@@ -23,11 +23,11 @@ export interface Session extends SessionAttributes {
 	id: string;
 	expiresAt: Date;
 	fresh: boolean;
-	userId: string;
+	userId: number;
 }
 
 export interface User extends UserAttributes {
-	id: string;
+	id: number;
 }
 
 export class Lucia<
@@ -98,7 +98,7 @@ export class Lucia<
 		);
 	}
 
-	public async getUserSessions(userId: string): Promise<Session[]> {
+	public async getUserSessions(userId: number): Promise<Session[]> {
 		const databaseSessions = await this.adapter.getUserSessions(userId);
 		const sessions: Session[] = [];
 		for (const databaseSession of databaseSessions) {
@@ -154,7 +154,7 @@ export class Lucia<
 	}
 
 	public async createSession(
-		userId: string,
+		userId: number,
 		attributes: RegisteredDatabaseSessionAttributes,
 		options?: {
 			sessionId?: string;
@@ -182,7 +182,7 @@ export class Lucia<
 		await this.adapter.deleteSession(sessionId);
 	}
 
-	public async invalidateUserSessions(userId: string): Promise<void> {
+	public async invalidateUserSessions(userId: number): Promise<void> {
 		await this.adapter.deleteUserSessions(userId);
 	}
 

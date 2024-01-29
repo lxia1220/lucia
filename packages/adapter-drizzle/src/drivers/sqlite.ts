@@ -28,7 +28,7 @@ export class DrizzleSQLiteAdapter implements Adapter {
 		await this.db.delete(this.sessionTable).where(eq(this.sessionTable.id, sessionId));
 	}
 
-	public async deleteUserSessions(userId: string): Promise<void> {
+	public async deleteUserSessions(userId: number): Promise<void> {
 		await this.db.delete(this.sessionTable).where(eq(this.sessionTable.userId, userId));
 	}
 
@@ -42,7 +42,7 @@ export class DrizzleSQLiteAdapter implements Adapter {
 		return [databaseSession, databaseUser];
 	}
 
-	public async getUserSessions(userId: string): Promise<DatabaseSession[]> {
+	public async getUserSessions(userId: number): Promise<DatabaseSession[]> {
 		const result = await this.db
 			.select()
 			.from(this.sessionTable)
@@ -113,7 +113,7 @@ export type SQLiteUserTable = SQLiteTableWithColumns<{
 				tableName: any;
 				dataType: any;
 				columnType: any;
-				data: string;
+				data: number;
 				driverParam: any;
 				notNull: true;
 				hasDefault: boolean; // must be boolean instead of any to allow default values
@@ -165,7 +165,7 @@ export type SQLiteSessionTable = SQLiteTableWithColumns<{
 				enumValues: any;
 				tableName: any;
 				columnType: any;
-				data: string;
+				data: number;
 				driverParam: any;
 				hasDefault: false;
 				name: any;
