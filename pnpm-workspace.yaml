@@ -1,4 +1,5 @@
 packages:
-  - "packages/*"
-  - "documentation/**"
-  - "documentation-v3/**"
+  - "packages/adapter-drizzle"
+  - "packages/lucia"
+  # - "documentation/**"
+  # - "documentation-v3/**"

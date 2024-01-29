@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "Authentication, simple and clean",
 	"scripts": {
+		"build": "turbo build",
 		"publish-setup": "pnpm i --no-frozen-lockfile && cd packages/lucia && pnpm build && cd ../adapter-test && pnpm build && cd ../../",
 		"format": "pnpm exec prettier --write . --plugin=prettier-plugin-astro",
 		"format:docs": "pnpm exec prettier --write documentation --plugin=prettier-plugin-astro",
@@ -28,6 +29,7 @@
 		"prettier-plugin-astro": "^0.10.0",
 		"prettier-plugin-tailwindcss": "^0.2.8",
 		"shx": "^0.3.4",
+		"turbo": "^1.11.3",
 		"typescript": "latest"
 	},
 	"engines": {
