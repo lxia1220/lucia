@@ -1,9 +1,9 @@
 import { Adapter, DatabaseSession, DatabaseUser } from "lucia";
-import { generateRandomString, alphabet } from "oslo/crypto";
+import { generateRandomString, alphabet, generateRandomInteger } from "oslo/crypto";
 import assert from "node:assert/strict";
 
 export const databaseUser: DatabaseUser = {
-	id: generateRandomString(15, alphabet("0-9", "a-z")),
+	id: generateRandomInteger(Number.MAX_SAFE_INTEGER),
 	attributes: {
 		username: generateRandomString(15, alphabet("0-9", "a-z"))
 	}
